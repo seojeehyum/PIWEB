@@ -24,6 +24,7 @@
         {{row.spot}}
         <input type="button" value="삭제" onclick="fDel('{{row.userid}}')">
         <input type="button" value="수정" onclick="fEdit('{{row.userid}}','{{row.username}}','{{row.email}}','{{row.tel}}','{{row.spot}}')">
+        <input type="button" value="말하기" onclick="fSound()">
         <br>
     {% endfor %}
 
@@ -59,6 +60,10 @@ email:<input type="text" name="email"><br>
         frm.email.value=email;
         frm.tel.value=tel;
         frm.spot.value=spot;
+    }
+
+    function fSound() {
+        location.href="/playmp3"
     }
 </script>
 </body>
