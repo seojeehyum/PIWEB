@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>직원 검색 "{{txtSearch}}"</h1>
+    <form action="/search" method="POST">
+    <input type="text" name="txtSearch" placeholder="찾고자 하는 직원명을 입력하세요" style="width:300px;" value="{{txtSearch}}">
+    <input type="submit" value="검색">
+    </form>
     <h1>직원 리스트</h1>
     {% for row in employee %}
         {{row.userid}}
@@ -15,8 +20,10 @@
         {{row.email}}
         ,
         {{row.tel}}
-        <input type="button" value="삭제" onclick="fDel({{row.userid}})">
-        <input type="button" value="수정" onclick="fEdit('{{row.userid}}','{{row.username}}','{{row.email}}','{{row.tel}}')">
+        ,
+        {{row.spot}}
+        <input type="button" value="삭제" onclick="fDel('{{row.userid}}')">
+        <input type="button" value="수정" onclick="fEdit('{{row.userid}}','{{row.username}}','{{row.email}}','{{row.tel}}','{{row.spot}}')">
         <br>
     {% endfor %}
 
@@ -25,6 +32,7 @@
 직원명:<input type="text" name="username"><br>
 email:<input type="text" name="email"><br>
 전화번호:<input type="text" name="tel"><br>
+직위명:<input type="text" name="spot"><br>
 <input type="submit" value="저장">
 </form>
 
@@ -34,6 +42,7 @@ email:<input type="text" name="email"><br>
 직원명:<input type="text" name="username"><br>
 email:<input type="text" name="email"><br>
 전화번호:<input type="text" name="tel"><br>
+직위명:<input type="text" name="spot"><br>
 <input type="submit" value="수정하기">
 </form>
 
@@ -43,12 +52,13 @@ email:<input type="text" name="email"><br>
         location.href="/delete/"+uid;
     }
 
-    function fEdit(userid,username,email,tel) {
+    function fEdit(userid,username,email,tel,spot) {
         var frm=document.frmEdit;
         frm.userid.value=userid;
         frm.username.value=username;
         frm.email.value=email;
         frm.tel.value=tel;
+        frm.spot.value=spot;
     }
 </script>
 </body>
