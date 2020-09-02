@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///smartcat.db' #'mysql://root:'
 app.config['SQlALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+<<<<<<< HEAD
 class LangAlarmConf(db.Model):
     __tablename__ = 'tblLangAlarmConf'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -15,6 +16,8 @@ class LangAlarmConf(db.Model):
     def __init__(self, alarmtime):
         self.alarmtime = alarmtime
 
+=======
+>>>>>>> b9c8b78407c419119e26f63d73d4148dd5e419ba
 
 class LangAlarmWord(db.Model):
     __tablename__ = 'tblLangAlarmWord'
@@ -43,18 +46,26 @@ def pages(page):
 def contents(page):
     return render_template('/contents/'+page)
 
+<<<<<<< HEAD
 @app.route('/bss/list.html')
 def bbslist() :
     read_data = LangAlarmWord.query.all()
     return render_template('/bbs/list.html',lagnwords=read_data)
 
+=======
+>>>>>>> b9c8b78407c419119e26f63d73d4148dd5e419ba
 @app.route('/bbs/<page>')
 def bbs(page):
     all_data = LangAlarmWord.query.order_by(LangAlarmWord.id.desc()).all()
     return render_template('/bbs/'+page, langwords = all_data)
 
+<<<<<<< HEAD
 @app.route('/bbs_add.html', methods=['POST'])
 def bbslistadd():
+=======
+@app.route('/bbs_insert', methods=['POST'])
+def bbsinsert():
+>>>>>>> b9c8b78407c419119e26f63d73d4148dd5e419ba
     category = request.form['category']
     word = request.form['word']
     memo = request.form['memo']

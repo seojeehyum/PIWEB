@@ -21,11 +21,16 @@ var app = new Framework7({
       url: 'contents/cid_{{cid}}.html'
     },
     {
+<<<<<<< HEAD
       path: '/bbs/:page/:id',
       url: 'bbs/{{page}}.html?id={{id}}',
       options:{
         ignoreCache:true
       }
+=======
+      path: '/bbs/:page',
+      url: 'bbs/{{page}}.html'
+>>>>>>> b9c8b78407c419119e26f63d73d4148dd5e419ba
     },
     {
       path: '/single/',
